@@ -106,13 +106,12 @@ datadog:
  logsConfigContainerCollectAll: true
 ```
 
-To collect host logs, the following configuration could be used:
+To collect custom logs, the following configuration could be used:
 
 ```
 datadog:
   (...)
-  logsEnabeld: true
-  customLogFilesEnabled: true
+  logsEnabled: true
   customLogFiles:
   - type:     file
     path:     <host-path/filename>  # Eg. /var/log/audit.log
@@ -282,7 +281,6 @@ helm install --name <RELEASE_NAME> \
 | `datadog.logLevel`                       | Agent log verbosity (possible values: trace, debug, info, warn, error, critical, and off) | `INFO`                                      |
 | `datadog.logsEnabled`                    | Enable log collection                                                                     | `nil`                                       |
 | `datadog.logsConfigContainerCollectAll`  | Collect logs from all containers                                                          | `nil`                                       |
-| `datadog.customLogFilesEnabled`          | Collect logs from the host                                                                | `nil`                                       |
 | `datadog.customLogFiles`                 | Definition of files from the host (see [Custom Log Collection](https://docs.datadoghq.com/agent/logs/?tab=tailexistingfiles#custom-log-collection))                                                                                    | `nil`                                       |
 | `datadog.logsPointerHostPath`            | Host path to store the log tailing state in                                               | `/var/lib/datadog-agent/logs`               |
 | `datadog.apmEnabled`                     | Enable tracing from the host                                                              | `nil`                                       |
